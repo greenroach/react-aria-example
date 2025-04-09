@@ -23,7 +23,8 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": "./",
     "paths": {
-      "@tokens/*": ["src/components/tokens/*"]
+      "@tokens/*": ["src/components/tokens/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src"]

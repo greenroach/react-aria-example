@@ -7,7 +7,7 @@
   
 .label {
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: $grey-800;
 }
@@ -20,7 +20,7 @@
     border: 1px solid $grey-400;
     transition: border-color 0.2s ease;
     color: $grey-800;
-    
+
     &::placeholder {
         color: $grey-600;
     }

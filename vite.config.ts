@@ -13,6 +13,12 @@ export default defineConfig({
           new URL("./src/components/tokens", import.meta.url),
         ),
       },
+      {
+        find: "@components",
+        replacement: fileURLToPath(
+          new URL("./src/components", import.meta.url),
+        ),
+      },
     ],
   },
 });
