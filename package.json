@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@adobe/react-spectrum": "^3.40.1",
     "classnames": "^2.5.1",
     "react": "^19.0.0",
     "react-aria": "^3.38.1",
