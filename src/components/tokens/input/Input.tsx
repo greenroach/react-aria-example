@@ -1,6 +1,8 @@
 import { Input as AriaInput, Label, TextField } from "react-aria-components";
 import styles from "./Input.module.scss";
 import { FC } from "react";
+import { useHover } from "react-aria";
+import cx from "classnames";
 
 type InputProps = {
   label?: string;
@@ -19,6 +21,8 @@ export const Input: FC<InputProps> = ({
   placeholder,
   name,
 }) => {
+  const { isHovered, hoverProps } = useHover({});
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!onChange) return;
     onChange(e.target.value);
@@ -28,12 +32,15 @@ export const Input: FC<InputProps> = ({
     <TextField className={styles.inputWrapper}>
       {label && <Label className={styles.label}>{label}</Label>}
       <AriaInput
-        className={styles.input}
+        className={cx(styles.input, {
+          [styles.hover]: isHovered,
+        })}
         value={value}
         onChange={handleChange}
         disabled={disabled}
         placeholder={placeholder}
         name={name}
+        {...hoverProps}
       />
     </TextField>
   );
