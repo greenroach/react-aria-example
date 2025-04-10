@@ -15,12 +15,13 @@ import cx from "classnames";
 type InputProps = {
   label?: string;
   value?: number;
-  onChange?: (value: string) => void;
+  onChange?: (value: number) => void;
   disabled?: boolean;
   placeholder?: string;
   name?: string;
   defaultValue?: number;
   minValue?: number;
+  maxValue?: number;
 };
 
 export const NumberInput: FC<InputProps> = ({
@@ -31,34 +32,39 @@ export const NumberInput: FC<InputProps> = ({
   placeholder,
   name,
   minValue,
+  maxValue,
   defaultValue,
 }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!onChange) return;
-    onChange(e.target.value);
-  };
-
   return (
     <NumberField
       defaultValue={defaultValue}
       minValue={minValue}
+      maxValue={maxValue}
       className={styles.inputWrapper}
+      onChange={onChange}
+      value={value}
     >
       <Label className={styles.label}>{label}</Label>
       <Group className={cx(styles.inputGroup, { [styles.disabled]: disabled })}>
-        <Button slot="decrement" className={styles.button}>
-          <IconMinus aria-label="decrement" />
+        <Button
+          slot="decrement"
+          className={styles.button}
+          aria-label="decrement"
+        >
+          <IconMinus />
         </Button>
         <Input
           className={styles.input}
-          value={value}
-          onChange={handleChange}
           disabled={disabled}
           placeholder={placeholder}
           name={name}
         />
-        <Button slot="increment" className={styles.button}>
-          <IconPlus aria-label="increment" />
+        <Button
+          slot="increment"
+          className={styles.button}
+          aria-label="increment"
+        >
+          <IconPlus />
         </Button>
       </Group>
     </NumberField>

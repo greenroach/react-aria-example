@@ -6,23 +6,60 @@ import { Flex } from "@adobe/react-spectrum";
 import { Slider } from "@tokens/slider/Slider";
 import styles from "./ShowcaseForm.module.scss";
 import { IconBin } from "@components/icons";
+import { useCallback } from "react";
+import { useShowcaseFormState } from "./useShowcaseForm";
 
 export const ShowcaseForm = () => {
+  const { state, dispatch } = useShowcaseFormState();
+
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      console.log("Form submitted with:", state);
+    },
+    [state],
+  );
+
+  const handleClear = () => {
+    dispatch({ type: "RESET_FORM" });
+  };
+
   return (
-    <Form className={styles.form}>
+    <Form className={styles.form} onSubmit={handleSubmit}>
       <Flex marginBottom="24px">
-        <Input label="Name" placeholder="enter text" />
+        <Input
+          label="Name"
+          placeholder="enter text"
+          value={state.name}
+          onChange={(value) => dispatch({ type: "SET_NAME", payload: value })}
+        />
       </Flex>
       <Group>
         <Flex gap="10px" direction="row">
-          <NumberInput label="Size (GB)" />
+          <NumberInput
+            label="Size (GB)"
+            value={state.size}
+            onChange={(value) => {
+              dispatch({ type: "SET_SIZE", payload: value });
+            }}
+            minValue={0}
+            maxValue={100}
+          />
           <Flex minWidth="175px" alignContent="end" direction="row" wrap="wrap">
-            <Slider />
+            <Slider
+              value={state.size}
+              onChange={(value) =>
+                dispatch({ type: "SET_SIZE", payload: value })
+              }
+              min={0}
+              max={100}
+              step={1}
+            />
           </Flex>
         </Flex>
       </Group>
       <Flex
-        gap="10px"
+        gap="16px"
         direction="row"
         marginTop="32px"
         justifyContent="stretch"
@@ -31,11 +68,12 @@ export const ShowcaseForm = () => {
         <Button
           variant="outlined"
           icon={<IconBin />}
-          onPress={() => console.log("Cancel clicked!")}
+          onPress={handleClear}
+          type="button"
         >
           Clear
         </Button>
-        <Button onPress={() => console.log("Cancel clicked!")}>Cancel</Button>
+        <Button type="submit">Submit</Button>
       </Flex>
     </Form>
   );

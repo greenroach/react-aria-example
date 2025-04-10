@@ -1,5 +1,5 @@
 import { ShowcaseForm } from "./components/showcase-form";
-import "./App.scss";
+
 import { Flex } from "@adobe/react-spectrum";
 
 function App() {

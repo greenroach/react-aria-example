@@ -20,6 +20,7 @@ interface ButtonProps {
   iconPosition?: IconPosition;
   children?: ReactNode;
   onPress?: AriaButtonProps["onPress"];
+  type?: AriaButtonProps["type"];
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -31,6 +32,7 @@ export const Button: FC<ButtonProps> = ({
   iconPosition = "left",
   onPress,
   children,
+  type,
 }) => {
   const isIconOnly = !!icon && !children;
 
@@ -47,7 +49,12 @@ export const Button: FC<ButtonProps> = ({
   );
 
   return (
-    <AriaButton onPress={onPress} isDisabled={disabled} className={classes}>
+    <AriaButton
+      onPress={onPress}
+      isDisabled={disabled}
+      className={classes}
+      type={type}
+    >
       {icon && iconPosition === "left" && (
         <span className={styles.icon}>{icon}</span>
       )}
