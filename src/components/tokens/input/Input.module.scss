@@ -27,7 +27,7 @@
 
   &:focus {
     outline: 2px solid $primary-main;
-    border: none;
+    outline-offset: -1px;
   }
 
   &:disabled {

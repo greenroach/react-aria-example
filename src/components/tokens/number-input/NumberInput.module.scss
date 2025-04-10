@@ -21,7 +21,7 @@
 
   &:focus-within {
     outline: 1px solid $grey-500;
-    border: none;
+    outline-offset: -1px;
   }
 }
 
