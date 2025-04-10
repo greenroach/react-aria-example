@@ -1,0 +1,38 @@
+@use '../../../styles/variables.scss' as *;
+
+.slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.track {
+  height: 4px;
+  background-color: $grey-300;
+  border-radius: $border-radius;
+  position: relative;
+}
+
+.thumb {
+  width: 16px;
+  height: 16px;
+  background-color: $primary-main;
+  border: 2px solid $white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 0 7px rgba($primary-main, 0.14);
+  }
+}
+
+.output {
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+}
