@@ -27,18 +27,7 @@ function formReducer(state: FormState, action: FormAction): FormState {
 export const useShowcaseFormState = (initial: FormState = initialState) => {
   const [state, dispatch] = useReducer(formReducer, initial);
 
-  const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      console.log("Form submitted with:", state);
-    },
-    [state],
-  );
-
-  return useMemo(
-    () => ({ state, dispatch, handleSubmit }),
-    [handleSubmit, state],
-  );
+  return useMemo(() => ({ state, dispatch }), [state]);
 };
 
 export const useShowcaseFormProps = (
