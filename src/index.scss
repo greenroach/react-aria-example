@@ -1,5 +1,7 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+body {
+  font-family: Sofia Sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   line-height: 1.5;
   font-weight: 400;
 
@@ -9,4 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
 
   box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
 }
