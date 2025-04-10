@@ -1,0 +1,168 @@
+@use '../../../styles/variables.scss' as *;
+@use 'sass:map';
+
+$themes: (
+  primary: (
+    default: $primary-main,
+    hover: $primary-dark,
+    disabled-bg: $grey-200,
+    disabled-color: $grey-500,
+    surface: $primary-surface,
+  ),
+  secondary: (
+    default: $grey-200,
+    hover: $grey-300,
+    disabled-bg: $grey-200,
+    disabled-color: $grey-500,
+    border: $grey-400,
+    border-hover: $grey-500,
+    border-disabled: $grey-300,
+  ),
+);
+
+$button-sizes: (
+  small: (
+    padding: 4px 8px,
+    font-size: 14px,
+    iconPadding: 4px,
+  ),
+  medium: (
+    padding: 8px 16px,
+    font-size: 16px,
+    iconPadding: 8px,
+  ),
+);
+
+@mixin button-size($size) {
+  $size-props: map.get($button-sizes, $size);
+  @if $size-props {
+    padding: map.get($size-props, padding);
+    font-size: map.get($size-props, font-size);
+  }
+}
+
+@mixin theme-variant($variant, $theme, $state: default) {
+  $theme-props: map.get($themes, $theme);
+  @if $theme-props {
+    @if $variant == 'contained' {
+      @if $state == default {
+        background-color: map.get($theme-props, default);
+        color: if($theme == primary, $white, $black);
+        border: none;
+      } @else if $state == hover {
+        background-color: map.get($theme-props, hover);
+        color: if($theme == primary, $white, $black);
+        border: none;
+      } @else if $state == disabled {
+        background-color: map.get($theme-props, disabled-bg);
+        color: map.get($theme-props, disabled-color);
+        border: none;
+      }
+    } @else if $variant == 'outlined' {
+      @if $state == default {
+        background-color: $white;
+        color: if($theme == primary, map.get($theme-props, default), $black);
+        border: 1px
+          solid
+          if(
+            $theme == primary,
+            map.get($theme-props, default),
+            map.get($theme-props, border)
+          );
+      } @else if $state == hover {
+        background-color: if(
+          $theme == primary,
+          map.get($theme-props, surface),
+          $white
+        );
+        color: if($theme == primary, map.get($theme-props, hover), $black);
+        border: 1px
+          solid
+          if(
+            $theme == primary,
+            map.get($theme-props, hover),
+            map.get($theme-props, border-hover)
+          );
+      } @else if $state == disabled {
+        background-color: $white;
+        color: map.get($theme-props, disabled-color);
+        border: 1px solid map.get($theme-props, border-disabled);
+      }
+    }
+  }
+}
+
+.button {
+  border-radius: $border-radius;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+  @each $size, $props in $button-sizes {
+    &.#{$size} {
+      @include button-size($size);
+    }
+  }
+
+  &.small.iconLeft {
+    padding-left: 4px;
+  }
+  &.small.iconRight {
+    padding-right: 4px;
+  }
+  &.iconRight {
+    flex-direction: row;
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+
+    svg,
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .label {
+    display: inline-block;
+  }
+
+  &.iconOnly {
+    @each $size, $props in $button-sizes {
+      &.#{$size} {
+        padding: map.get($props, iconPadding);
+      }
+    }
+    .icon {
+      margin: 0;
+    }
+  }
+
+  @each $variant in (contained, outlined) {
+    @each $theme in (primary, secondary) {
+      &.#{$variant}.#{$theme} {
+        @include theme-variant($variant, $theme);
+
+        &:hover,
+        &:active,
+        &:focus {
+          @include theme-variant($variant, $theme, hover);
+        }
+
+        &:disabled {
+          @include theme-variant($variant, $theme, disabled);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
