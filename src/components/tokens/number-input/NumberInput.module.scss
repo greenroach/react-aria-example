@@ -23,6 +23,12 @@
     outline: 1px solid $grey-500;
     outline-offset: -1px;
   }
+
+  &[data-disabled] {
+    background-color: $grey-50;
+    border-color: $grey-400;
+    color: $grey-500;
+  }
 }
 
 .label {
@@ -59,10 +65,4 @@
   border-radius: 2px;
   color: inherit;
   cursor: pointer;
-}
-
-.disabled {
-  background-color: $grey-50;
-  border-color: $grey-400;
-  color: $grey-500;
 }

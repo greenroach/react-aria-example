@@ -6,19 +6,16 @@ import { Flex } from "@adobe/react-spectrum";
 import { Slider } from "@tokens/slider/Slider";
 import styles from "./ShowcaseForm.module.scss";
 import { IconBin } from "@components/icons";
-import { useCallback } from "react";
+
 import { useShowcaseFormState } from "./useShowcaseForm";
 
 export const ShowcaseForm = () => {
   const { state, dispatch } = useShowcaseFormState();
 
-  const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      console.log("Form submitted with:", state);
-    },
-    [state],
-  );
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted with:", state);
+  };
 
   const handleClear = () => {
     dispatch({ type: "RESET_FORM" });
@@ -48,12 +45,15 @@ export const ShowcaseForm = () => {
           <Flex minWidth="175px" alignContent="end" direction="row" wrap="wrap">
             <Slider
               value={state.size}
-              onChange={(value) =>
-                dispatch({ type: "SET_SIZE", payload: value })
-              }
-              min={0}
-              max={100}
+              onChange={(value) => {
+                if (typeof value === "number") {
+                  dispatch({ type: "SET_SIZE", payload: value });
+                }
+              }}
+              minValue={0}
+              maxValue={100}
               step={1}
+              aria-label="Size Slider"
             />
           </Flex>
         </Flex>

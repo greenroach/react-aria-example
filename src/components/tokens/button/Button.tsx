@@ -1,17 +1,18 @@
 import { FC, ReactNode } from "react";
 import {
   Button as AriaButton,
-  ButtonProps as AriaButtonProps,
+  type ButtonProps as AriaButtonProps,
 } from "react-aria-components";
 import cx from "classnames";
 import styles from "./Button.module.scss";
+import { OmitStyleProps } from "@components/common/types";
 
 type Size = "small" | "medium";
 type Variant = "contained" | "outlined";
 type Theme = "primary" | "secondary";
 type IconPosition = "left" | "right";
 
-interface ButtonProps {
+interface ButtonProps extends OmitStyleProps<AriaButtonProps> {
   size?: Size;
   variant?: Variant;
   theme?: Theme;
@@ -19,8 +20,6 @@ interface ButtonProps {
   icon?: ReactNode;
   iconPosition?: IconPosition;
   children?: ReactNode;
-  onPress?: AriaButtonProps["onPress"];
-  type?: AriaButtonProps["type"];
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -32,7 +31,7 @@ export const Button: FC<ButtonProps> = ({
   iconPosition = "left",
   onPress,
   children,
-  type,
+  ...otherProps
 }) => {
   const isIconOnly = !!icon && !children;
 
@@ -52,8 +51,8 @@ export const Button: FC<ButtonProps> = ({
     <AriaButton
       onPress={onPress}
       isDisabled={disabled}
+      {...otherProps}
       className={classes}
-      type={type}
     >
       {icon && iconPosition === "left" && (
         <span className={styles.icon}>{icon}</span>

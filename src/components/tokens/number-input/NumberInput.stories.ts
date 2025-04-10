@@ -7,7 +7,6 @@ const meta = {
   title: "Tokens/NumberInput",
   component: NumberInput,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
 
@@ -27,7 +26,7 @@ export const Primary: Story = {
 export const Disabled: Story = {
   args: {
     label: "Disabled",
-    disabled: true,
+    isDisabled: true,
     value: 0,
   },
 };

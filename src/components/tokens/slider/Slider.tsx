@@ -1,35 +1,18 @@
 import {
   Slider as AriaSlider,
+  type SliderProps as AriaSliderProps,
   SliderTrack,
   SliderThumb,
 } from "react-aria-components";
 import { FC } from "react";
 import styles from "./Slider.module.scss";
+import type { OmitStyleProps } from "@components/common/types";
 
-interface SliderProps {
-  value?: number;
-  onChange?: (value: number) => void;
-  min?: number;
-  max?: number;
-  step?: number;
-}
+type SliderProps = OmitStyleProps<AriaSliderProps>;
 
-export const Slider: FC<SliderProps> = ({
-  value,
-  onChange,
-  min = 0,
-  max = 100,
-  step = 1,
-}) => {
+export const Slider: FC<SliderProps> = (props) => {
   return (
-    <AriaSlider
-      value={value}
-      onChange={onChange}
-      minValue={min}
-      maxValue={max}
-      step={step}
-      className={styles.slider}
-    >
+    <AriaSlider {...props} className={styles.slider} style={undefined}>
       <SliderTrack className={styles.track}>
         <SliderThumb className={styles.thumb} />
       </SliderTrack>
