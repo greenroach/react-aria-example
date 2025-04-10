@@ -16,26 +16,11 @@ import { OmitStyleProps } from "@components/common/types";
 
 interface InputProps extends OmitStyleProps<NumberFieldProps> {
   label?: string;
-  placeholder?: string;
 }
 
-export const NumberInput: FC<InputProps> = ({
-  label,
-  value,
-  onChange,
-  minValue,
-  maxValue,
-  defaultValue,
-  placeholder,
-  ...otherProps
-}) => {
+export const NumberInput: FC<InputProps> = ({ label, ...otherProps }) => {
   return (
     <NumberField
-      defaultValue={defaultValue}
-      minValue={minValue}
-      maxValue={maxValue}
-      onChange={onChange}
-      value={value}
       {...otherProps}
       className={styles.inputWrapper}
       style={undefined}
@@ -49,7 +34,7 @@ export const NumberInput: FC<InputProps> = ({
         >
           <IconMinus />
         </Button>
-        <Input placeholder={placeholder} className={styles.input} />
+        <Input className={styles.input} />
         <Button
           slot="increment"
           className={styles.button}

@@ -7,20 +7,22 @@ import { Slider } from "@tokens/slider/Slider";
 import styles from "./ShowcaseForm.module.scss";
 import { IconBin } from "@components/icons";
 
-import { useShowcaseFormState } from "./useShowcaseForm";
+import { FC } from "react";
+import { ShowcaseFormProps } from "./types";
 
-export const ShowcaseForm = () => {
-  const { state, dispatch } = useShowcaseFormState();
+const MIN_VALUE = 0;
+const MAX_VALUE = 100;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted with:", state);
-  };
-
-  const handleClear = () => {
-    dispatch({ type: "RESET_FORM" });
-  };
-
+export const ShowcaseForm: FC<ShowcaseFormProps> = ({
+  state,
+  handleClear,
+  handleSubmit,
+  handleNameChange,
+  handleSizeChange,
+  minValue = MIN_VALUE,
+  maxValue = MAX_VALUE,
+  step = 1,
+}) => {
   return (
     <Form className={styles.form} onSubmit={handleSubmit}>
       <Flex marginBottom="24px">
@@ -28,7 +30,8 @@ export const ShowcaseForm = () => {
           label="Name"
           placeholder="enter text"
           value={state.name}
-          onChange={(value) => dispatch({ type: "SET_NAME", payload: value })}
+          name="name"
+          onChange={handleNameChange}
         />
       </Flex>
       <Group>
@@ -36,23 +39,22 @@ export const ShowcaseForm = () => {
           <NumberInput
             label="Size (GB)"
             value={state.size}
-            onChange={(value) => {
-              dispatch({ type: "SET_SIZE", payload: value });
-            }}
-            minValue={0}
-            maxValue={100}
+            onChange={handleSizeChange}
+            minValue={minValue}
+            maxValue={maxValue}
+            name="size"
           />
           <Flex minWidth="175px" alignContent="end" direction="row" wrap="wrap">
             <Slider
               value={state.size}
               onChange={(value) => {
                 if (typeof value === "number") {
-                  dispatch({ type: "SET_SIZE", payload: value });
+                  handleSizeChange(value);
                 }
               }}
-              minValue={0}
-              maxValue={100}
-              step={1}
+              minValue={minValue}
+              maxValue={maxValue}
+              step={step}
               aria-label="Size Slider"
             />
           </Flex>

@@ -19,7 +19,9 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     label: "Label",
-    placeholder: "0",
+    value: 42,
+    minValue: 0,
+    maxValue: 100,
   },
 };
 
