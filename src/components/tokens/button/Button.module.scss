@@ -100,6 +100,8 @@ $button-sizes: (
   justify-content: center;
   gap: 8px;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  flex-grow: 1;
 
   @each $size, $props in $button-sizes {
     &.#{$size} {

@@ -1,10 +1,22 @@
 @use '../../../styles/variables.scss' as *;
 
 .slider {
+  box-sizing: border-box;
+  height: 24px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 8px;
+  // Increase horizontal padding to account for thumb overflow
+  padding: 0 8px;
+}
+
+.trackWrapper {
+  position: relative;
+  width: 100%;
+  // Add padding equal to half the thumb width on both sides
+  padding: 0 8px;
 }
 
 .track {
@@ -12,6 +24,16 @@
   background-color: $grey-300;
   border-radius: $border-radius;
   position: relative;
+  width: 100%;
+}
+
+.filledTrack {
+  position: absolute;
+  height: 4px;
+  background-color: $primary-dark;
+  border-radius: $border-radius;
+  top: 0;
+  left: 0;
 }
 
 .thumb {
@@ -29,10 +51,15 @@
   &:hover {
     box-shadow: 0 0 0 7px rgba($primary-main, 0.14);
   }
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .output {
   font-size: 14px;
   color: #444;
   text-align: center;
+  margin-top: 4px;
 }

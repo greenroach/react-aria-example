@@ -1,0 +1,11 @@
+@use '../../styles/variables.scss' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: $border-radius;
+  border: 1px solid $grey-300;
+  padding: 40px;
+  position: relative;
+}

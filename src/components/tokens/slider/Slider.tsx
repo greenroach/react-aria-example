@@ -7,8 +7,8 @@ import { FC } from "react";
 import styles from "./Slider.module.scss";
 
 interface SliderProps {
-  value: number;
-  onChange: (value: number) => void;
+  value?: number;
+  onChange?: (value: number) => void;
   min?: number;
   max?: number;
   step?: number;
