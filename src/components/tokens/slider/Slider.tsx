@@ -13,9 +13,19 @@ type SliderProps = OmitStyleProps<AriaSliderProps>;
 export const Slider: FC<SliderProps> = (props) => {
   return (
     <AriaSlider {...props} className={styles.slider} style={undefined}>
-      <SliderTrack className={styles.track}>
-        <SliderThumb className={styles.thumb} />
-      </SliderTrack>
+      <div className={styles.trackWrapper}>
+        <SliderTrack className={styles.track}>
+          {({ state }) => (
+            <>
+              <div
+                className={styles.filledTrack}
+                style={{ width: state.getThumbPercent(0) * 100 + "%" }}
+              />
+              <SliderThumb className={styles.thumb} />
+            </>
+          )}
+        </SliderTrack>
+      </div>
     </AriaSlider>
   );
 };

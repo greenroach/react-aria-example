@@ -20,11 +20,7 @@ export const Input: FC<InputProps> = ({ label, ...otherProps }) => {
   const { isHovered, hoverProps } = useHover({});
 
   return (
-    <TextField
-      {...otherProps}
-      className={styles.inputWrapper}
-      style={undefined}
-    >
+    <TextField {...otherProps} className={styles.inputWrapper}>
       {label && <Label className={styles.label}>{label}</Label>}
       <AriaInput
         className={cx(styles.input, {

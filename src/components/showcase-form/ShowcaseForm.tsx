@@ -43,6 +43,7 @@ export const ShowcaseForm: FC<ShowcaseFormProps> = ({
             minValue={minValue}
             maxValue={maxValue}
             name="size"
+            aria-label="Size Input"
           />
           <Flex minWidth="175px" alignContent="end" direction="row" wrap="wrap">
             <Slider
@@ -72,10 +73,13 @@ export const ShowcaseForm: FC<ShowcaseFormProps> = ({
           icon={<IconBin />}
           onPress={handleClear}
           type="button"
+          aria-label="Clear form"
         >
           Clear
         </Button>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" aria-label="Submit form">
+          Submit
+        </Button>
       </Flex>
     </Form>
   );

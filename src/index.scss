@@ -2,7 +2,6 @@ body {
   font-family: Sofia Sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  line-height: 1.5;
   font-weight: 400;
 
   font-synthesis: none;
@@ -18,4 +17,8 @@ select,
 textarea,
 button {
   font-family: inherit;
+}
+
+* {
+  box-sizing: border-box;
 }

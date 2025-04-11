@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     label: "Label",
-    value: 42,
+    defaultValue: 42,
     minValue: 0,
     maxValue: 100,
   },
@@ -29,6 +29,8 @@ export const Disabled: Story = {
   args: {
     label: "Disabled",
     isDisabled: true,
-    value: 0,
+    value: 42,
+    minValue: 0,
+    maxValue: 100,
   },
 };

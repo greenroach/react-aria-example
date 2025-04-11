@@ -3,6 +3,7 @@
 .inputWrapper {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .label {
@@ -13,15 +14,17 @@
 }
 
 .input {
-  padding: 8px 16px;
+  height: 32px;
+  padding: 7px 8px 7px 16px; // 7px top + 7px bottom = 14px
   font-size: 16px;
+  border: 1px solid $grey-400; // 2px total
+  box-sizing: border-box;
   font-weight: 600;
-  line-height: 16px;
-  letter-spacing: 0%;
   border-radius: $border-radius;
   border: 1px solid $grey-400;
-  transition: border-color 0.2s ease;
   color: $grey-800;
+
+  transition: border-color 0.2s ease, outline 0.2s ease;
 
   &::placeholder {
     color: $grey-600;
@@ -30,15 +33,17 @@
   &:focus {
     outline: 2px solid $primary-main;
     outline-offset: -1px;
+    border-color: $grey-400;
   }
 
-  &[data-disabled] {
+  &[data-disabled='true'] {
     background-color: $grey-50;
     border-color: $grey-400;
     color: $grey-500;
+    cursor: not-allowed;
   }
-}
 
-.hover {
-  border-color: $grey-500;
+  &:hover:not([data-disabled='true']) {
+    border-color: $grey-500;
+  }
 }
