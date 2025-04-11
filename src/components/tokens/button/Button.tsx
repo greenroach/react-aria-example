@@ -53,6 +53,7 @@ export const Button: FC<ButtonProps> = ({
       isDisabled={disabled}
       {...otherProps}
       className={classes}
+      style={undefined}
     >
       {icon && iconPosition === "left" && (
         <span className={styles.icon}>{icon}</span>

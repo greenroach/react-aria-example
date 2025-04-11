@@ -1,0 +1,129 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button Component > renders with size: 'medium', variant: 'contained', theme: 'primary' 1`] = `
+<button
+  class="_button_40c60c _medium_40c60c _contained_40c60c _primary_40c60c"
+  data-rac=""
+  id="react-aria-«ra»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'medium', variant: 'contained', theme: 'secondary' 1`] = `
+<button
+  class="_button_40c60c _medium_40c60c _contained_40c60c _secondary_40c60c"
+  data-rac=""
+  id="react-aria-«rc»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'medium', variant: 'outlined', theme: 'primary' 1`] = `
+<button
+  class="_button_40c60c _medium_40c60c _outlined_40c60c _primary_40c60c"
+  data-rac=""
+  id="react-aria-«re»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'medium', variant: 'outlined', theme: 'secondary' 1`] = `
+<button
+  class="_button_40c60c _medium_40c60c _outlined_40c60c _secondary_40c60c"
+  data-rac=""
+  id="react-aria-«rg»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'small', variant: 'contained', theme: 'primary' 1`] = `
+<button
+  class="_button_40c60c _small_40c60c _contained_40c60c _primary_40c60c"
+  data-rac=""
+  id="react-aria-«r2»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'small', variant: 'contained', theme: 'secondary' 1`] = `
+<button
+  class="_button_40c60c _small_40c60c _contained_40c60c _secondary_40c60c"
+  data-rac=""
+  id="react-aria-«r4»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'small', variant: 'outlined', theme: 'primary' 1`] = `
+<button
+  class="_button_40c60c _small_40c60c _outlined_40c60c _primary_40c60c"
+  data-rac=""
+  id="react-aria-«r6»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
+
+exports[`Button Component > renders with size: 'small', variant: 'outlined', theme: 'secondary' 1`] = `
+<button
+  class="_button_40c60c _small_40c60c _outlined_40c60c _secondary_40c60c"
+  data-rac=""
+  id="react-aria-«r8»"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="_label_40c60c"
+  >
+    "text"
+  </span>
+</button>
+`;
