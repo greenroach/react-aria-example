@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { fileURLToPath } from "url";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { fileURLToPath } from 'url';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,15 +8,15 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: "@tokens",
+        find: '@tokens',
         replacement: fileURLToPath(
-          new URL("./src/components/tokens", import.meta.url),
+          new URL('./src/components/tokens', import.meta.url),
         ),
       },
       {
-        find: "@components",
+        find: '@components',
         replacement: fileURLToPath(
-          new URL("./src/components", import.meta.url),
+          new URL('./src/components', import.meta.url),
         ),
       },
     ],

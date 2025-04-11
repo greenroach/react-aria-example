@@ -5,14 +5,14 @@ import {
   Label,
   NumberField,
   type NumberFieldProps,
-} from "react-aria-components";
+} from 'react-aria-components';
 
-import { FC } from "react";
+import { FC } from 'react';
 
-import { IconMinus, IconPlus } from "@components/icons";
-import styles from "./NumberInput.module.scss";
-import cx from "classnames";
-import { OmitStyleProps } from "@components/common/types";
+import { IconMinus, IconPlus } from '@components/icons';
+import styles from './NumberInput.module.scss';
+import cx from 'classnames';
+import { OmitStyleProps } from '@components/common/types';
 
 interface InputProps extends OmitStyleProps<NumberFieldProps> {
   label?: string;

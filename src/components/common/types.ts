@@ -1,1 +1,1 @@
-export type OmitStyleProps<T> = Omit<T, "className" | "style">;
+export type OmitStyleProps<T> = Omit<T, 'className' | 'style'>;

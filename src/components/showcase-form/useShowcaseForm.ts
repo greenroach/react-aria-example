@@ -1,23 +1,23 @@
-import { useCallback, useMemo, useReducer } from "react";
-import type { FormState, ShowcaseFormProps } from "./types";
+import { useCallback, useMemo, useReducer } from 'react';
+import type { FormState, ShowcaseFormProps } from './types';
 
 type FormAction =
-  | { type: "SET_NAME"; payload: string }
-  | { type: "SET_SIZE"; payload: number }
-  | { type: "RESET_FORM" };
+  | { type: 'SET_NAME'; payload: string }
+  | { type: 'SET_SIZE'; payload: number }
+  | { type: 'RESET_FORM' };
 
 const initialState: FormState = {
-  name: "",
+  name: '',
   size: 0,
 };
 
 function formReducer(state: FormState, action: FormAction): FormState {
   switch (action.type) {
-    case "SET_NAME":
+    case 'SET_NAME':
       return { ...state, name: action.payload };
-    case "SET_SIZE":
+    case 'SET_SIZE':
       return { ...state, size: action.payload };
-    case "RESET_FORM":
+    case 'RESET_FORM':
       return initialState;
     default:
       return state;
@@ -38,24 +38,24 @@ export const useShowcaseFormProps = (
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      console.log("Form submitted with:", state);
+      console.log('Form submitted with:', state);
     },
     [state],
   );
 
   const handleClear = useCallback(() => {
-    dispatch({ type: "RESET_FORM" });
+    dispatch({ type: 'RESET_FORM' });
   }, [dispatch]);
 
   const handleSizeChange = useCallback(
     (value: number) => {
-      dispatch({ type: "SET_SIZE", payload: value });
+      dispatch({ type: 'SET_SIZE', payload: value });
     },
     [dispatch],
   );
   const handleNameChange = useCallback(
     (value: string) => {
-      dispatch({ type: "SET_NAME", payload: value });
+      dispatch({ type: 'SET_NAME', payload: value });
     },
     [dispatch],
   );

@@ -1,3 +1,3 @@
-import { IconProps as IconPropsRaw } from "@adobe/react-spectrum";
+import { IconProps as IconPropsRaw } from '@adobe/react-spectrum';
 
-export type IconProps = Omit<IconPropsRaw, "children">;
+export type IconProps = Omit<IconPropsRaw, 'children'>;

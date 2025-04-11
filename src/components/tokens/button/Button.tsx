@@ -1,16 +1,16 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from 'react';
 import {
   Button as AriaButton,
   type ButtonProps as AriaButtonProps,
-} from "react-aria-components";
-import cx from "classnames";
-import styles from "./Button.module.scss";
-import { OmitStyleProps } from "@components/common/types";
+} from 'react-aria-components';
+import cx from 'classnames';
+import styles from './Button.module.scss';
+import { OmitStyleProps } from '@components/common/types';
 
-type Size = "small" | "medium";
-type Variant = "contained" | "outlined";
-type Theme = "primary" | "secondary";
-type IconPosition = "left" | "right";
+type Size = 'small' | 'medium';
+type Variant = 'contained' | 'outlined';
+type Theme = 'primary' | 'secondary';
+type IconPosition = 'left' | 'right';
 
 interface ButtonProps extends OmitStyleProps<AriaButtonProps> {
   size?: Size;
@@ -23,12 +23,12 @@ interface ButtonProps extends OmitStyleProps<AriaButtonProps> {
 }
 
 export const Button: FC<ButtonProps> = ({
-  size = "medium",
-  variant = "contained",
-  theme = "primary",
+  size = 'medium',
+  variant = 'contained',
+  theme = 'primary',
   disabled,
   icon,
-  iconPosition = "left",
+  iconPosition = 'left',
   onPress,
   children,
   ...otherProps
@@ -44,7 +44,7 @@ export const Button: FC<ButtonProps> = ({
     isIconOnly && styles.iconOnly,
     !!icon &&
       !isIconOnly &&
-      (iconPosition === "right" ? styles.iconRight : styles.iconLeft),
+      (iconPosition === 'right' ? styles.iconRight : styles.iconLeft),
   );
 
   return (
@@ -55,11 +55,11 @@ export const Button: FC<ButtonProps> = ({
       className={classes}
       style={undefined}
     >
-      {icon && iconPosition === "left" && (
+      {icon && iconPosition === 'left' && (
         <span className={styles.icon}>{icon}</span>
       )}
       {children && <span className={styles.label}>{children}</span>}
-      {icon && iconPosition === "right" && (
+      {icon && iconPosition === 'right' && (
         <span className={styles.icon}>{icon}</span>
       )}
     </AriaButton>

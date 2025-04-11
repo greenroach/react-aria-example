@@ -1,14 +1,14 @@
-import { Form, Group } from "react-aria-components";
-import { Input } from "@tokens/input";
-import { Button } from "@tokens/button";
-import { NumberInput } from "@tokens/number-input";
-import { Flex } from "@adobe/react-spectrum";
-import { Slider } from "@tokens/slider/Slider";
-import styles from "./ShowcaseForm.module.scss";
-import { IconBin } from "@components/icons";
+import { Form, Group } from 'react-aria-components';
+import { Input } from '@tokens/input';
+import { Button } from '@tokens/button';
+import { NumberInput } from '@tokens/number-input';
+import { Flex } from '@adobe/react-spectrum';
+import { Slider } from '@tokens/slider/Slider';
+import styles from './ShowcaseForm.module.scss';
+import { IconBin } from '@components/icons';
 
-import { FC } from "react";
-import { ShowcaseFormProps } from "./types";
+import { FC } from 'react';
+import { ShowcaseFormProps } from './types';
 
 const MIN_VALUE = 0;
 const MAX_VALUE = 100;
@@ -49,7 +49,7 @@ export const ShowcaseForm: FC<ShowcaseFormProps> = ({
             <Slider
               value={state.size}
               onChange={(value) => {
-                if (typeof value === "number") {
+                if (typeof value === 'number') {
                   handleSizeChange(value);
                 }
               }}

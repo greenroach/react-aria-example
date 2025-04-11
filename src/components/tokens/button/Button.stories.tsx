@@ -1,44 +1,44 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from "./Button";
-import { fn } from "@storybook/test";
-import { IconPlus } from "@components/icons";
+import { Button } from './Button';
+import { fn } from '@storybook/test';
+import { IconPlus } from '@components/icons';
 
 const meta = {
-  title: "Tokens/Button",
+  title: 'Tokens/Button',
   component: Button,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   args: { onPress: fn() },
   argTypes: {
     size: {
       control: {
-        type: "select",
-        options: ["small", "medium"],
+        type: 'select',
+        options: ['small', 'medium'],
       },
     },
     variant: {
       control: {
-        type: "select",
-        options: ["contained", "outlined"],
+        type: 'select',
+        options: ['contained', 'outlined'],
       },
     },
     theme: {
       control: {
-        type: "select",
-        options: ["primary", "secondary"],
+        type: 'select',
+        options: ['primary', 'secondary'],
       },
     },
     iconPosition: {
       control: {
-        type: "select",
-        options: ["left", "right"],
+        type: 'select',
+        options: ['left', 'right'],
       },
     },
     disabled: {
       control: {
-        type: "boolean",
+        type: 'boolean',
       },
     },
   },
@@ -49,22 +49,22 @@ type Story = StoryObj<typeof meta>;
 
 export const WithText: Story = {
   args: {
-    children: "Button",
-    size: "medium",
-    variant: "contained",
-    theme: "primary",
+    children: 'Button',
+    size: 'medium',
+    variant: 'contained',
+    theme: 'primary',
     disabled: false,
   },
 };
 
 export const WithTextAndIcon: Story = {
   args: {
-    children: "Button",
+    children: 'Button',
     icon: <IconPlus />,
-    iconPosition: "left",
-    size: "medium",
-    variant: "contained",
-    theme: "primary",
+    iconPosition: 'left',
+    size: 'medium',
+    variant: 'contained',
+    theme: 'primary',
     disabled: false,
   },
 };
@@ -72,10 +72,10 @@ export const WithTextAndIcon: Story = {
 export const IconOnly: Story = {
   args: {
     icon: <IconPlus />,
-    iconPosition: "left",
-    size: "medium",
-    variant: "contained",
-    theme: "primary",
+    iconPosition: 'left',
+    size: 'medium',
+    variant: 'contained',
+    theme: 'primary',
     disabled: false,
   },
 };

@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 
-import { Input } from "./Input";
+import { Input } from './Input';
 
 const meta = {
-  title: "Tokens/Input",
+  title: 'Tokens/Input',
   component: Input,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 
   args: { onChange: fn() },
@@ -18,15 +18,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    label: "Label",
-    placeholder: "Enter text",
+    label: 'Label',
+    placeholder: 'Enter text',
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: "Disabled",
+    label: 'Disabled',
     isDisabled: true,
-    placeholder: "Enter text",
+    placeholder: 'Enter text',
   },
 };

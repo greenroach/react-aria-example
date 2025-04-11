@@ -1,6 +1,6 @@
-import { Icon } from "@adobe/react-spectrum";
-import { FC } from "react";
-import { IconProps } from "./types";
+import { Icon } from '@adobe/react-spectrum';
+import { FC } from 'react';
+import { IconProps } from './types';
 
 export const IconMinus: FC<IconProps> = (props) => {
   return (

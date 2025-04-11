@@ -3,12 +3,12 @@ import {
   Label,
   TextField,
   type TextFieldProps,
-} from "react-aria-components";
-import styles from "./Input.module.scss";
-import { FC } from "react";
-import { useHover } from "react-aria";
-import cx from "classnames";
-import type { OmitStyleProps } from "@components/common/types";
+} from 'react-aria-components';
+import styles from './Input.module.scss';
+import { FC } from 'react';
+import { useHover } from 'react-aria';
+import cx from 'classnames';
+import type { OmitStyleProps } from '@components/common/types';
 
 interface InputProps extends OmitStyleProps<TextFieldProps> {
   label?: string;
